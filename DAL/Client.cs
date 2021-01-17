@@ -14,5 +14,6 @@ namespace DAL
         public String ville { get; set; }
         public int cp { get; set; }
         public int tel { get; set; }
+        
     }
 }
