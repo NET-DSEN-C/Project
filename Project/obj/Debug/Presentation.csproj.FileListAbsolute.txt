@@ -8,3 +8,24 @@ D:\Documents\Devlopement\.NET\Project\Project\obj\Debug\Presentation.csproj.Gene
 D:\Documents\Devlopement\.NET\Project\Project\obj\Debug\Presentation.csproj.CoreCompileInputs.cache
 D:\Documents\Devlopement\.NET\Project\Project\obj\Debug\Project.exe
 D:\Documents\Devlopement\.NET\Project\Project\obj\Debug\Project.pdb
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Presentation.csprojAssemblyReference.cache
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Project.AjoutClient.resources
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Project.AjoutCmd.resources
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Project.AjoutLigncmd.resources
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Project.AjoutProduit.resources
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Project.Form1.resources
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Project.ListeProduit.resources
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Project.Properties.Resources.resources
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Project.rechercheClient.resources
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Presentation.csproj.GenerateResource.cache
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Presentation.csproj.CoreCompileInputs.cache
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Project.exe
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Project.pdb
+D:\Documents\Devlopement\.NET\Project .net\Project\bin\Debug\Project.exe.config
+D:\Documents\Devlopement\.NET\Project .net\Project\bin\Debug\Project.exe
+D:\Documents\Devlopement\.NET\Project .net\Project\bin\Debug\Project.pdb
+D:\Documents\Devlopement\.NET\Project .net\Project\bin\Debug\BAL.dll
+D:\Documents\Devlopement\.NET\Project .net\Project\bin\Debug\DAL.dll
+D:\Documents\Devlopement\.NET\Project .net\Project\bin\Debug\BAL.pdb
+D:\Documents\Devlopement\.NET\Project .net\Project\bin\Debug\DAL.pdb
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Presentation.csproj.CopyComplete

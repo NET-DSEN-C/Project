@@ -44,7 +44,7 @@
             this.Supprimerbtn = new System.Windows.Forms.Button();
             this.Modifierbtn = new System.Windows.Forms.Button();
             this.Ajouterbtn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ListeCommandedgv = new System.Windows.Forms.DataGridView();
             this.RéférenceCmd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,16 +63,16 @@
             this.InfoClient = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.ListeLigneCmddgv = new System.Windows.Forms.DataGridView();
             this.Produit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantité = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prix = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListeCommandedgv)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListeLigneCmddgv)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -187,7 +187,7 @@
             this.groupBox2.Controls.Add(this.Supprimerbtn);
             this.groupBox2.Controls.Add(this.Modifierbtn);
             this.groupBox2.Controls.Add(this.Ajouterbtn);
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.ListeCommandedgv);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(243, 12);
             this.groupBox2.Name = "groupBox2";
@@ -204,6 +204,7 @@
             this.Quiterbtn.TabIndex = 5;
             this.Quiterbtn.Text = "Quitter";
             this.Quiterbtn.UseVisualStyleBackColor = true;
+            this.Quiterbtn.Click += new System.EventHandler(this.Quiterbtn_Click);
             // 
             // Supprimerbtn
             // 
@@ -213,6 +214,7 @@
             this.Supprimerbtn.TabIndex = 4;
             this.Supprimerbtn.Text = "Supprimer";
             this.Supprimerbtn.UseVisualStyleBackColor = true;
+            this.Supprimerbtn.Click += new System.EventHandler(this.Supprimerbtn_Click);
             // 
             // Modifierbtn
             // 
@@ -232,19 +234,21 @@
             this.Ajouterbtn.Text = "Ajouter";
             this.Ajouterbtn.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // ListeCommandedgv
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ListeCommandedgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ListeCommandedgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ListeCommandedgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RéférenceCmd,
             this.Date,
             this.Client});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 57);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(650, 198);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.ListeCommandedgv.Location = new System.Drawing.Point(6, 57);
+            this.ListeCommandedgv.Name = "ListeCommandedgv";
+            this.ListeCommandedgv.Size = new System.Drawing.Size(650, 198);
+            this.ListeCommandedgv.TabIndex = 1;
+            this.ListeCommandedgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListeCommandedgv_CellClick);
+            this.ListeCommandedgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.ListeCommandedgv.SelectionChanged += new System.EventHandler(this.ListeCommandedgv_SelectionChanged);
             // 
             // RéférenceCmd
             // 
@@ -387,7 +391,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.dataGridView2);
+            this.groupBox4.Controls.Add(this.ListeLigneCmddgv);
             this.groupBox4.Location = new System.Drawing.Point(243, 273);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(776, 285);
@@ -406,19 +410,19 @@
             this.label8.Text = "Lignes Commande";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridView2
+            // ListeLigneCmddgv
             // 
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ListeLigneCmddgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ListeLigneCmddgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ListeLigneCmddgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Produit,
             this.Quantité,
             this.Prix});
-            this.dataGridView2.Location = new System.Drawing.Point(6, 57);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(650, 194);
-            this.dataGridView2.TabIndex = 0;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.ListeLigneCmddgv.Location = new System.Drawing.Point(6, 57);
+            this.ListeLigneCmddgv.Name = "ListeLigneCmddgv";
+            this.ListeLigneCmddgv.Size = new System.Drawing.Size(650, 194);
+            this.ListeLigneCmddgv.TabIndex = 0;
+            this.ListeLigneCmddgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // Produit
             // 
@@ -447,14 +451,15 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListeCommandedgv)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListeLigneCmddgv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -475,7 +480,7 @@
         private System.Windows.Forms.Button Supprimerbtn;
         private System.Windows.Forms.Button Modifierbtn;
         private System.Windows.Forms.Button Ajouterbtn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView ListeCommandedgv;
         private System.Windows.Forms.DataGridViewTextBoxColumn RéférenceCmd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Client;
@@ -494,7 +499,7 @@
         private System.Windows.Forms.TextBox InfoClient;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView ListeLigneCmddgv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Produit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantité;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prix;

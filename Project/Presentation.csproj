@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -46,16 +46,67 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjoutClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjoutClient.Designer.cs">
+      <DependentUpon>AjoutClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjoutCmd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjoutCmd.Designer.cs">
+      <DependentUpon>AjoutCmd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjoutLigncmd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjoutLigncmd.Designer.cs">
+      <DependentUpon>AjoutLigncmd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjoutProduit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjoutProduit.Designer.cs">
+      <DependentUpon>AjoutProduit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListeProduit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListeProduit.Designer.cs">
+      <DependentUpon>ListeProduit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rechercheClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rechercheClient.Designer.cs">
+      <DependentUpon>rechercheClient.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AjoutClient.resx">
+      <DependentUpon>AjoutClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjoutCmd.resx">
+      <DependentUpon>AjoutCmd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjoutLigncmd.resx">
+      <DependentUpon>AjoutLigncmd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjoutProduit.resx">
+      <DependentUpon>AjoutProduit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListeProduit.resx">
+      <DependentUpon>ListeProduit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -66,6 +117,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="rechercheClient.resx">
+      <DependentUpon>rechercheClient.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +132,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BAL\BAL.csproj">
+      <Project>{c2f60d32-31bc-420a-920d-6c40acf6f6d3}</Project>
+      <Name>BAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{fc8a9aaa-c2be-4b8c-991e-17335fbb0a46}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
