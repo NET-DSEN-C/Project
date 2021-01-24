@@ -28,6 +28,14 @@ using System.Threading.Tasks;
             _cp = cp;
             _tel = tel;
         }
-
+        public Client(int id, string nom, string rue, string ville, int cp, int tel)
+        {
+            _id = id;
+            _nom = nom;
+            _rue = rue;
+            _ville = ville;
+            _cp = cp;
+            _tel = tel;
+        }
     }
 }

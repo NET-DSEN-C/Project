@@ -26,11 +26,6 @@ namespace Project
             BALCommande.remplirListeCommande(ListeCommandedgv);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -76,7 +71,70 @@ namespace Project
 
         private void Supprimerbtn_Click(object sender, EventArgs e)
         {
-            BALCommande.supprimerCmd(ListeCommandedgv);
+            if (ListeCommandedgv.Rows.Count > 0)
+            {
+                for (int i = 0; i < ListeCommandedgv.Rows.Count; i++)
+                {
+                    BALLignecmd.deleteLigCmd(ListeCommandedgv.SelectedRows[0].Cells[0].Value.ToString());
+                }
+                BALCommande.deleteCmd(ListeCommandedgv.SelectedRows[0].Cells[0].Value.ToString());
+                BALCommande.remplirListeCommande(ListeCommandedgv);
+                ListeLigneCmddgv.Rows.Clear();
+            }
+            
+        }
+
+        private void Ajouterbtn_Click(object sender, EventArgs e)
+        {
+            AjoutCmd a = new AjoutCmd(ListeCommandedgv,ListeLigneCmddgv);
+            a.Show();
+        }
+
+        private void Modifierbtn_Click(object sender, EventArgs e)
+        {
+            if(ListeCommandedgv.SelectedRows.Count > 0)
+            {
+                AjoutCmd a = new AjoutCmd(ListeCommandedgv,ListeLigneCmddgv);
+                a.Show();
+            }
+        }
+
+        private void find()
+        {
+
+            TextBox[] info =
+            {
+                RechercheRef,
+                RechercheClientinput
+            };
+
+            DateTimePicker[] dates =
+            {
+                deb,
+                fin
+            };
+
+            BALCommande.rechercheCmd(ListeCommandedgv, info, dates);
+        }
+
+        private void RechercheRef_TextChanged(object sender, EventArgs e)
+        {
+            find();
+        }
+
+        private void RechercheClientinput_TextChanged(object sender, EventArgs e)
+        {
+            find();
+        }
+
+        private void deb_ValueChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void fin_ValueChanged(object sender, EventArgs e)
+        {
+         
         }
     }
 }

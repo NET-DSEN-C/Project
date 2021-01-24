@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
+using System.Windows.Forms;
 
 namespace BAL
 {
@@ -160,6 +161,31 @@ namespace BAL
 
             return ok;
         }
+
+        public static string newGGID()
+        {
+            Guid g = Guid.NewGuid();
+            String[] gguids = { g.ToString().Split('-')[0], g.ToString().Split('-')[1] };
+            return String.Join("", gguids);
+        }
+        public static bool idInDgv(DataGridView dgv, string id)
+        {
+            bool exist = false;
+            if (dgv.Rows.Count > 0)
+            {
+                for (int i = 0; i < dgv.Rows.Count - 1; i++)
+                {
+                    if (dgv.Rows[i].Cells[0].Value.ToString().Equals(id))
+                    {
+                        exist = true;
+                    }
+                }
+
+            } 
+            return exist;
+        } 
+
+        
     }
 }
 

@@ -22,7 +22,7 @@ namespace BAL
             while (readerCmd.Read())
             {
                 
-                dgv.Rows.Add(readerCmd.GetValue(0), readerCmd.GetValue(1),getClientById(readerCmd.GetValue(2).ToString()) );
+                dgv.Rows.Add(readerCmd.GetValue(0), readerCmd.GetValue(1),getClientById(readerCmd.GetValue(2).ToString()), readerCmd.GetValue(2));
                
             }
             Global.seDeconnecter(cn);
@@ -35,32 +35,26 @@ namespace BAL
             cn = Global.seConnecter(Global.cs);
             OleDbDataReader reader;
             string name = "";
-
-            reader = Global.ExecuterOleDBSelect(@"select * from client where id = " + id, cn);
-            while (reader.Read())
+            try
             {
-              name = reader.GetValue(1).ToString();
+                reader = Global.ExecuterOleDBSelect(@"select * from client where id = " + id, cn);
+                while (reader.Read())
+                {
+                    name = reader.GetValue(1).ToString();
+                }
+
+                reader.Close();
+                Global.seDeconnecter(cn);
             }
-            
-            reader.Close();
-            Global.seDeconnecter(cn);
+            catch (Exception)
+            {
+
+            }
+           
             return name;
 
         }
 
-        public static void supprimerCmd(DataGridView dgv)
-        {
-            if (dgv.SelectedRows.Count > 0)
-            {
-                OleDbConnection cn = new OleDbConnection();
-                cn = Global.seConnecter(Global.cs);
-
-                string id = dgv.SelectedRows[0].Cells[0].Value.ToString();
-                int m = Global.ExecuteOleDBAction(@"delete from commande where id = "+id, cn);
-                Global.seDeconnecter(cn);
-                remplirListeCommande(dgv);
-            }
-        }
 
         private static string getIdClientByName(string name)
         {
@@ -81,6 +75,84 @@ namespace BAL
 
         }
 
+        public static int addCommande(DAL.Commande c)
+        {
+            int res;
+            OleDbConnection cn = new OleDbConnection();
+            cn = Global.seConnecter(Global.cs);
+            Object[,] attr =
+            {
+                {"@NumCmd",c.NumCmd},
+                {"@DateCmd", c.DateCmd},
+                {"@NumClient", c.NumClient},
+            };
+            res = Global.ExecuterOleDBActionNomsParams(@"insert into commande values" +
+                 " (@NumCmd,@DateCmd,@NumClient)", cn, attr);
+            Global.seDeconnecter(cn);
+             return 0;
+        }
+
+
+        public static bool checkCmd(string refCmd)
+        {
+            bool exist = false;
+            OleDbConnection cn = new OleDbConnection();
+            cn = Global.seConnecter(Global.cs);
+            OleDbDataReader reader;
+            try
+            {
+                reader = Global.ExecuterOleDBSelect(@"select numcmd from commande where numcmd like '%" + refCmd +"%'", cn);
+      
+                if (reader.Read())
+                {
+                    exist = true;
+                }
+
+            }
+            catch (Exception)
+            {
+            }
+            Global.seDeconnecter(cn);
+            return exist;
+        }
+
+        public static void deleteCmd(string refCmd)
+        {
+            OleDbConnection cn = new OleDbConnection();
+            cn = Global.seConnecter(Global.cs);
+            Object[,] attr =
+            {
+                {"@NumCmd",refCmd}
+            };
+
+            int res = Global.ExecuterOleDBActionNomsParams(@"delete from commande where numcmd like @NumCmd", cn, attr);
+
+            Global.seDeconnecter(cn);
+
+        }
+        public static void rechercheCmd(DataGridView dgv, TextBox[] infos, DateTimePicker[] dates)
+        {
+            dgv.Rows.Clear();
+            OleDbConnection cn = new OleDbConnection();
+            cn = Global.seConnecter(Global.cs);
+            try
+            {
+                string sql = "numcmd like '%" + infos[0].Text + "%' and numclient = " + BALClient.getIDByNom(infos[1].Text);
+                //+ " and datecmd between '" + dates[0].Value.ToString() +"' and '" + dates[0].Value.ToString()+"'"
+                OleDbDataReader reader = Global.ExecuterOleDBSelect(@"select * from commande where " + sql, cn);
+                while (reader.Read())
+                {
+                    dgv.Rows.Add(reader.GetValue(0), reader.GetValue(1), getClientById(reader.GetValue(2).ToString()), reader.GetValue(2));
+                }
+                reader.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+            Global.seDeconnecter(cn);
+
+        }
 
     }
 }

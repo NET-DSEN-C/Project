@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addTypeProduit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addTypeProduit.Designer.cs">
+      <DependentUpon>addTypeProduit.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjoutClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     <Compile Include="rechercheClient.Designer.cs">
       <DependentUpon>rechercheClient.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="addTypeProduit.resx">
+      <DependentUpon>addTypeProduit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjoutClient.resx">
       <DependentUpon>AjoutClient.cs</DependentUpon>
     </EmbeddedResource>

@@ -29,3 +29,4 @@ D:\Documents\Devlopement\.NET\Project .net\Project\bin\Debug\DAL.dll
 D:\Documents\Devlopement\.NET\Project .net\Project\bin\Debug\BAL.pdb
 D:\Documents\Devlopement\.NET\Project .net\Project\bin\Debug\DAL.pdb
 D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Presentation.csproj.CopyComplete
+D:\Documents\Devlopement\.NET\Project .net\Project\obj\Debug\Project.addTypeProduit.resources
